@@ -88,28 +88,70 @@
     "routing": {
       "config": {
         "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "qmportal780.view",
         "controlAggregation": "pages",
         "controlId": "app",
-        "transition": "slide",
-        "type": "View",
-        "viewType": "XML",
-        "path": "qmportal780.view",
-        "async": true,
-        "viewPath": "qmportal780.view"
+        "clearControlAggregation": false
       },
       "routes": [
         {
-          "name": "Routeapp",
-          "pattern": ":?query:",
+          "name": "Login",
+          "pattern": "",
           "target": [
-            "Targetapp"
+            "Login"
+          ]
+        },
+        {
+          "name": "Dashboard",
+          "pattern": "dashboard",
+          "target": [
+            "Dashboard"
+          ]
+        },
+        {
+          "name": "InspectionLot",
+          "pattern": "inspectionLot",
+          "target": [
+            "InspectionLot"
+          ]
+        },
+        {
+          "name": "ResultRecording",
+          "pattern": "resultRecording",
+          "target": [
+            "ResultRecording"
+          ]
+        },
+        {
+          "name": "UsageDecision",
+          "pattern": "usageDecision",
+          "target": [
+            "UsageDecision"
           ]
         }
       ],
       "targets": {
-        "Targetapp": {
-          "id": "app",
-          "name": "app"
+        "Login": {
+          "viewName": "Login",
+          "viewLevel": 1
+        },
+        "Dashboard": {
+          "viewName": "Dashboard",
+          "viewLevel": 2
+        },
+        "InspectionLot": {
+          "viewName": "InspectionLot",
+          "viewLevel": 3
+        },
+        "ResultRecording": {
+          "viewName": "ResultRecording",
+          "viewLevel": 3
+        },
+        "UsageDecision": {
+          "viewName": "UsageDecision",
+          "viewLevel": 3
         }
       }
     },

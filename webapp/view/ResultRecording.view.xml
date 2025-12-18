@@ -1,0 +1,51 @@
+<mvc:View controllerName="qmportal780.controller.ResultRecording"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+    <Page title="Result Recording" showNavButton="true" navButtonPress="onNavBack">
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <Panel headerText="Search Inspection Lot">
+                    <content>
+                        <HBox alignItems="Center">
+                            <Input id="inpInspLot" placeholder="Enter Inspection Lot Number" width="300px"/>
+                            <Button text="Search" press="onSearch" type="Emphasized" class="sapUiTinyMarginBegin"/>
+                        </HBox>
+                    </content>
+                </Panel>
+
+                <Panel id="pnlResult" visible="false" headerText="Record Results">
+                    <content>
+                        <form:SimpleForm editable="true" layout="ResponsiveGridLayout">
+                            <form:content>
+                                <Label text="Inspection Lot"/>
+                                <Text text="{record>InspectionLot}"/>
+                                
+                                <Label text="Material"/>
+                                <Text text="{record>Material}"/>
+
+                                <Label text="Unrestricted Stock Qty"/>
+                                <Input value="{record>UnrestrictedStk}" type="Number" editable="{view>/editable}"/>
+
+                                <Label text="Blocked Stock Qty"/>
+                                <Input value="{record>BlockedStk}" type="Number" editable="{view>/editable}"/>
+
+                                <Label text="Quality Stock Qty"/>
+                                <Input value="{record>QualityStk}" type="Number" editable="{view>/editable}"/>
+                                
+                                <Label text="Inspection Date"/>
+                                <Input value="{record>InspectorDate}" editable="{view>/editable}"/>
+
+                                <Label text="Last Changed By"/>
+                                <Text text="{record>LastChangedBy}"/>
+                            </form:content>
+                        </form:SimpleForm>
+                        <Button text="Save" type="Accept" press="onSave" visible="{view>/editable}" class="sapUiSmallMarginTop"/>
+                    </content>
+                </Panel>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

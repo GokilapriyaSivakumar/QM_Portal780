@@ -1,0 +1,36 @@
+<mvc:View controllerName="qmportal780.controller.Dashboard"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core">
+    <Page title="QM Dashboard" showNavButton="false">
+        <headerContent>
+            <Button icon="sap-icon://log" type="Transparent" press="onLogout" tooltip="Logout"/>
+        </headerContent>
+        <content>
+            <l:Grid defaultSpan="L4 M6 S12" class="sapUiSmallMarginTop">
+                <GenericTile header="Inspection Lot" subheader="Manage Inspection Lots" press="onPressInspectionLot" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout">
+                    <tileContent>
+                        <TileContent>
+                            <ImageContent src="sap-icon://inspection" />
+                        </TileContent>
+                    </tileContent>
+                </GenericTile>
+                <GenericTile header="Result Recording" subheader="Record Inspection Results" press="onPressResultRecording" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout">
+                    <tileContent>
+                        <TileContent>
+                            <ImageContent src="sap-icon://form" />
+                        </TileContent>
+                    </tileContent>
+                </GenericTile>
+                <GenericTile header="Usage Decision" subheader="Make Usage Decisions" press="onPressUsageDecision" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout">
+                    <tileContent>
+                        <TileContent>
+                            <ImageContent src="sap-icon://accept" />
+                        </TileContent>
+                    </tileContent>
+                </GenericTile>
+            </l:Grid>
+        </content>
+    </Page>
+</mvc:View>

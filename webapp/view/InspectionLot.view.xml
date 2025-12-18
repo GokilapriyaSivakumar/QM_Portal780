@@ -1,0 +1,37 @@
+<mvc:View controllerName="qmportal780.controller.InspectionLot"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Page title="Inspection Lots" showNavButton="true" navButtonPress="onNavBack">
+        <content>
+            <Table id="inspectionTable" items="{/ZQM780_INSPECT}">
+                <columns>
+                    <Column><Text text="Inspection Lot" /></Column>
+                    <Column><Text text="Material" /></Column>
+                    <Column><Text text="Plant" /></Column>
+                    <Column><Text text="Inspection Type" /></Column>
+                    <Column><Text text="Start Date" /></Column>
+                    <Column><Text text="End Date" /></Column>
+                    <Column><Text text="Quantity" /></Column>
+                    <Column><Text text="UoM" /></Column>
+                    <Column><Text text="Status" /></Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{InspectionLot}" />
+                            <Text text="{Material}" />
+                            <Text text="{Plant}" />
+                            <Text text="{InspectionType}" />
+                            <Text text="{path: 'StartDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd.MM.yyyy' }}" />
+                            <Text text="{path: 'EndDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd.MM.yyyy' }}" />
+                            <Text text="{InspectionLotQty}" />
+                            <Text text="{InspectionLotUOM}" />
+                            <ObjectStatus text="{UsageDecisionStatus}" state="{= ${UsageDecisionStatus} === 'Approved' ? 'Success' : (${UsageDecisionStatus} === 'Rejected' ? 'Error' : 'None') }" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

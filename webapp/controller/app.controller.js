@@ -3,7 +3,7 @@ sap.ui.define([
 ], (Controller) => {
     "use strict";
 
-    return Controller.extend("qmportal780.controller.app", {
+    return Controller.extend("qmportal780.controller.App", {
         onInit() {
         }
     });

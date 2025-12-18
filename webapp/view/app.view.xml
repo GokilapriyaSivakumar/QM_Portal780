@@ -1,6 +1,6 @@
-<mvc:View controllerName="qmportal780.controller.app"
-    xmlns:mvc="sap.ui.core.mvc"
+<mvc:View controllerName="qmportal780.controller.App"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
-    </Page>
+    <App id="app"/>
 </mvc:View>
