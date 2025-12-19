@@ -1,48 +1,106 @@
-<mvc:View controllerName="qmportal780.controller.UsageDecision"
+<mvc:View
+    controllerName="qmportal780.controller.UsageDecision"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
     xmlns:l="sap.ui.layout"
     xmlns:form="sap.ui.layout.form"
     xmlns:core="sap.ui.core">
-    <Page title="Usage Decision" showNavButton="true" navButtonPress="onNavBack">
+
+    <Page
+        id="usageDecisionPage"
+        title="Usage Decision"
+        showNavButton="true"
+        navButtonPress="onNavBack">
+
         <content>
-            <VBox class="sapUiSmallMargin">
-                <Panel headerText="Search Inspection Lot">
+            <VBox id="vboxMain" class="sapUiSmallMargin">
+
+                <!-- Search Panel -->
+                <Panel id="pnlSearch" headerText="Search Inspection Lot">
                     <content>
-                        <HBox alignItems="Center">
-                            <Input id="inpInspLot" placeholder="Enter Inspection Lot Number" width="300px"/>
-                            <Button text="Search" press="onSearch" type="Emphasized" class="sapUiTinyMarginBegin"/>
+                        <HBox id="hboxSearch" alignItems="Center">
+                            <Input
+                                id="inpInspLot"
+                                placeholder="Enter Inspection Lot Number"
+                                width="300px"/>
+                            <Button
+                                id="btnSearch"
+                                text="Search"
+                                type="Emphasized"
+                                press="onSearch"
+                                class="sapUiTinyMarginBegin"/>
                         </HBox>
                     </content>
                 </Panel>
 
-                <Panel id="pnlDecision" visible="false" headerText="Make Usage Decision">
+                <!-- Decision Panel -->
+                <Panel
+                    id="pnlDecision"
+                    visible="false"
+                    headerText="Usage Decision Details">
+
                     <content>
-                        <form:SimpleForm editable="false" layout="ResponsiveGridLayout" title="Inspection Details">
+                        <form:SimpleForm
+                            id="frmUsage"
+                            editable="false"
+                            layout="ResponsiveGridLayout"
+                            title="Inspection Details">
+
                             <form:content>
                                 <Label text="Inspection Lot"/>
-                                <Text text="{usage>InspectionLot}"/>
-                                
-                                <Label text="Total Lot Quantity"/>
-                                <Text text="{usage>InspectionLotQty}"/>
+                                <Text id="txtLot" text="{usage>/InspectionLotNo}"/>
 
-                                <Label text="Recorded Quantity (Total)"/>
-                                <Text text="{usage>TotalRecordedQty}" state="{usage>QtyState}"/> <!-- Validation State -->
+                                <Label text="Plant"/>
+                                <Text id="txtPlant" text="{usage>/Plant}"/>
 
-                                <Label text="Difference"/>
-                                <Text text="{usage>DiffQty}" state="{usage>DiffState}"/>
-                                
-                                <Label text="Current Status"/>
-                                <Text text="{usage>UsageDecision}"/>
+                                <Label text="Usage Decision Code"/>
+                                <ObjectStatus
+                                    id="objUsageStatus"
+                                    text="{usage>/UsageDecisionCode}"
+                                    state="{
+                                        = ${usage>/UsageDecisionCode} === 'A'
+                                        ? 'Success'
+                                        : (${usage>/UsageDecisionCode} === 'R'
+                                        ? 'Error'
+                                        : 'None')
+                                    }"/>
+
+                                <Label text="Decision By"/>
+                                <Text id="txtDecisionBy" text="{usage>/DecisionBy}"/>
+
+                                <Label text="Decision Date"/>
+                                <Text
+                                    id="txtDecisionDate"
+                                    text="{
+                                        path: 'usage>/DecisionDate',
+                                        type: 'sap.ui.model.type.Date',
+                                        formatOptions: { pattern: 'dd.MM.yyyy' }
+                                    }"/>
+
+                                <Label text="Quality Score"/>
+                                <ObjectNumber
+                                    id="objQualityScore"
+                                    number="{usage>/QualityScore}"/>
                             </form:content>
                         </form:SimpleForm>
-                        
-                        <HBox class="sapUiSmallMarginTop">
-                            <Button text="Approve" type="Accept" press="onApprove" enabled="{usage>ActionEnabled}" class="sapUiTinyMarginEnd"/>
-                            <Button text="Reject" type="Reject" press="onReject" enabled="{usage>ActionEnabled}"/>
+
+                        <HBox id="hboxActions" class="sapUiSmallMarginTop">
+                            <Button
+                                id="btnApprove"
+                                text="Approve"
+                                type="Accept"
+                                press="onApprove"/>
+
+                            <Button
+                                id="btnReject"
+                                text="Reject"
+                                type="Reject"
+                                press="onReject"
+                                class="sapUiTinyMarginBegin"/>
                         </HBox>
                     </content>
                 </Panel>
+
             </VBox>
         </content>
     </Page>

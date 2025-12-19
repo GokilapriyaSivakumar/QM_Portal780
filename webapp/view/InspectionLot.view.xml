@@ -20,14 +20,14 @@
                     <ColumnListItem>
                         <cells>
                             <Text text="{InspectionLot}" />
-                            <Text text="{Material}" />
+                            <Text text="{MaterialNumber}" />
                             <Text text="{Plant}" />
                             <Text text="{InspectionType}" />
                             <Text text="{path: 'StartDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd.MM.yyyy' }}" />
                             <Text text="{path: 'EndDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd.MM.yyyy' }}" />
-                            <Text text="{InspectionLotQty}" />
-                            <Text text="{InspectionLotUOM}" />
-                            <ObjectStatus text="{UsageDecisionStatus}" state="{= ${UsageDecisionStatus} === 'Approved' ? 'Success' : (${UsageDecisionStatus} === 'Rejected' ? 'Error' : 'None') }" />
+                            <Text text="{LotQuantity}" />
+                            <Text text="{UoM}" />
+                            <ObjectStatus text="{UsageDecisionCode}" state="{= ${UsageDecisionStatus} === 'Approved' ? 'Success' : (${UsageDecisionStatus} === 'Rejected' ? 'Error' : 'None') }" />
                         </cells>
                     </ColumnListItem>
                 </items>
